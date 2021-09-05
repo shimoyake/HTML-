@@ -6,17 +6,20 @@ let result= document.getElementById("result");
 //最初の入力が0の時、続けて入力できないようにする
 function number(elem) {
   if(result.value==="0") {
-    return;
+    result.value= elem.value; //入力０の時に別の値入力したら上書きする
   }else {
-    result.value = result.value + elem.value;
+    result.value= result.value + elem.value; //入力されてる値に、新しく入力した値をつか加える
   }
 }
+  //result.value=表示されてる値、elem.value=新しく入力した値
+
 
 //記号のボタンも同じ
+//処理：returnにすることで次に演算子の入力ができなくなる
 function edit(elem) {
    
   if(result.value.slice(-1)==="+") {
-  return;
+    return;
    
   }else if(result.value.slice(-1)==="-") {
   return;
