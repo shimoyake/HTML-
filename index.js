@@ -1,42 +1,44 @@
 'use strict'; 
 
-var result = document.getElementById("result");
-//resultをHTMLのID=resultと連携させる
+//result id=上部の数字を表示する部分
+let result= document.getElementById("result");
 
+//最初の入力が0の時、続けて入力できないようにする
+function number(elem) {
+  if(result.value==="0") {
+    return;
+  }else {
+    result.value = result.value + elem.value;
+  }
+}
 
-//ボタンを押したときに数字を表示する、この処理では一文字のみ
-//myValue＝今入力されてる数字
-function append(myValue) // input tag を更新する関数
-    {
-      document.querySelector( 'input' ).value = myValue
-    }
+//記号のボタンも同じ
+function edit(elem) {
+   
+  if(result.value.slice(-1)==="+") {
+  return;
+   
+  }else if(result.value.slice(-1)==="-") {
+  return;
+   
+  }else if(result.value.slice(-1)==="*") {
+  return;
+   
+  }else if(result.value.slice(-1)==="/") {
+  return;
+   
+  }else{
+    result.value= result.value + elem.value; 
+}
+}
 
-    //document.querySelector()：指定した要素ないの最初のものを返す
-    //id要素を指定した場合は、('#id名')
-
-
-
-//新しく入力した数字をmyValueに+=で連結
-function append(myValue) // 数字ボタンが押されたので数字を後ろに追加する
-    {
-      var start =document.querySelector( 'input' ).value += myValue
-    }
-
+//=ボタンで計算　calc()関数：値を計算できる+-*の４種
+function calc() {
+  result.value = new Function("return " + result.value)();
+}
 
 //ACボタンを押したときの更新
-function update(myValue) 
-    {
-    document.querySelector( 'input' ).value = myValue
-    }
-
-//calc()関数：値を計算できる+-*/の４種
-//「=」を押してからの計算
-function calc() 
-    {
-      const v = document.querySelector( 'input' ).value
-      const f = new Function( 'return ' + v )
-      update( f().toString() )  
-        //合計値を文字列として上書きする
-    }
-    //toString()：文字列で返す 12ではなく"12"
-    //( f().toString() ) ：変数fのオブジェクトを文字列として返す指示
+function update() {
+  result.value="";
+}
+/**/
