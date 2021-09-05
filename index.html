@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
- <meta charset="utf-8">
- <link rel="stylesheet" href="index.css">
-</head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>  
+    <link rel="stylesheet" href="index.css">
+    <title>電卓</title>
+  </head>
  
 <body>
   <div class="area">
@@ -11,7 +12,7 @@
     <input type="text" id="result">
     
     <div class="button-list">
-      <button value="1" onclick="number(this)">1</button>
+      <input type="button" value="1" onclick="number(this)">
       <input type="button" value="2" onclick="number(this)">
       <input type="button" value="3" onclick="number(this)">
       <input type="button" value="+" onclick="edit(this)">
